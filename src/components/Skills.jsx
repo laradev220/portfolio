@@ -35,31 +35,31 @@ const skillCategories = [
 
 export default function Skills() {
   return (
-    <section id="skills" className="py-24 px-6 bg-tokyo-surface/30">
+    <section id="skills" className="py-16 md:py-24 px-4 md:px-6 bg-tokyo-surface/30">
       <div className="max-w-4xl mx-auto">
         <ScrollReveal>
-          <h2 className="section-title text-2xl font-bold flex items-center gap-3">
+          <h2 className="section-title text-xl md:text-2xl font-bold flex items-center gap-3">
             <span className="text-tokyo-purple">//</span> Technical Skills
           </h2>
         </ScrollReveal>
 
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid sm:grid-cols-2 gap-4 md:gap-6">
           {skillCategories.map((category, index) => (
             <ScrollReveal key={category.title} delay={index * 0.1}>
               <motion.div
-                className={`bg-tokyo-surface border border-tokyo-border rounded-lg p-6 ${category.borderColor} transition-colors`}
+                className={`bg-tokyo-surface border border-tokyo-border rounded-lg p-4 md:p-6 ${category.borderColor} transition-colors`}
                 whileHover={{ scale: 1.01 }}
                 transition={{ duration: 0.2 }}
               >
-                <div className="flex items-center gap-3 mb-4">
+                <div className="flex items-center gap-2 md:gap-3 mb-3 md:mb-4">
                   <motion.div
                     whileHover={{ rotate: 360 }}
                     transition={{ duration: 0.6 }}
-                    className="p-2 rounded-lg bg-tokyo-bg"
+                    className="p-1.5 md:p-2 rounded-lg bg-tokyo-bg"
                   >
-                    <category.icon className={category.color} size={24} />
+                    <category.icon className={category.color} size={20} />
                   </motion.div>
-                  <h3 className="text-lg font-semibold text-tokyo-text">{category.title}</h3>
+                  <h3 className="text-base md:text-lg font-semibold text-tokyo-text">{category.title}</h3>
                 </div>
 
                 <div className="flex flex-wrap gap-2">

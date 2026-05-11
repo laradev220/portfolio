@@ -41,25 +41,27 @@ export default function About() {
         <div className="mt-8">
           <ScrollReveal delay={0.2}>
             <motion.div
-              className="bg-tokyo-bg border border-tokyo-border rounded-lg p-5 font-mono text-sm overflow-x-auto"
+              className="bg-tokyo-bg border border-tokyo-border rounded-lg p-3 md:p-5 font-mono text-xs md:text-sm overflow-x-auto"
               whileHover={{ borderColor: 'rgba(122, 162, 247, 0.4)' }}
             >
-              <div className="text-tokyo-muted mb-1">{'// Stats'}</div>
-              <div className="flex flex-wrap">
+              <div className="text-tokyo-muted mb-1 text-xs">{'// Stats'}</div>
+              <div className="flex flex-wrap items-center">
                 <span className="text-tokyo-text">{'{'}</span>
-                {stats.map((stat, index) => (
-                  <motion.div
-                    key={stat.key}
-                    className="flex items-center w-full md:w-auto md:inline-flex ml-4 my-1"
-                    whileHover={{ x: 2 }}
-                  >
-                    <span className={`${stat.keyColor}`}>{stat.key}</span>
-                    <span className="text-tokyo-muted mx-2">:</span>
-                    <span className={`${stat.valueColor}`}>{stat.value}</span>
-                    {index < stats.length - 1 && <span className="text-tokyo-text">,</span>}
-                  </motion.div>
-                ))}
-                <span className="text-tokyo-text ml-4">{'}'}</span>
+                <div className="flex flex-wrap w-full">
+                  {stats.map((stat, index) => (
+                    <motion.div
+                      key={stat.key}
+                      className="flex items-center mr-2 md:mr-4 my-1"
+                      whileHover={{ x: 2 }}
+                    >
+                      <span className={`${stat.keyColor}`}>{stat.key}</span>
+                      <span className="text-tokyo-muted mx-1">:</span>
+                      <span className={`${stat.valueColor}`}>{stat.value}</span>
+                      {index < stats.length - 1 && <span className="text-tokyo-text">,</span>}
+                    </motion.div>
+                  ))}
+                </div>
+                <span className="text-tokyo-text">{'}'}</span>
               </div>
             </motion.div>
           </ScrollReveal>

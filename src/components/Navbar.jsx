@@ -36,17 +36,19 @@ export default function Navbar({ activeSection }) {
       animate={{ y: 0 }}
       transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
     >
-      <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-        <div className="flex items-center font-mono text-sm">
-          <span className="text-tokyo-muted">irfan@dev</span>
-          <span className="text-tokyo-muted mx-2">:</span>
+      <div className="max-w-6xl mx-auto px-3 md:px-6 py-3 md:py-4 flex items-center justify-between">
+        <div className="flex flex-col md:flex-row md:items-center font-mono text-xs md:text-sm">
+          <div className="flex items-center">
+            <span className="text-tokyo-muted">irfan@dev</span>
+            <span className="text-tokyo-muted mx-1 md:mx-2">:</span>
+          </div>
           <div className="flex items-center">
             {navItems.map((item, index) => (
               <motion.div key={item.id} className="flex items-center" whileHover={{ scale: 1.05 }}>
-                {index > 0 && <span className="text-tokyo-muted mx-1">/</span>}
+                {index > 0 && <span className="text-tokyo-muted mx-0.5 md:mx-1">/</span>}
                 <motion.button
                   onClick={() => scrollToSection(item.id)}
-                  className={`relative ${pathColors[index]} hover:text-tokyo-text transition-colors`}
+                  className={`relative text-xs md:text-sm ${pathColors[index]} hover:text-tokyo-text transition-colors`}
                   whileTap={{ scale: 0.95 }}
                 >
                   {item.label}
@@ -60,9 +62,9 @@ export default function Navbar({ activeSection }) {
                 </motion.button>
               </motion.div>
             ))}
-            <span className="text-tokyo-green ml-2">$</span>
+            <span className="text-tokyo-green ml-1 md:ml-2">$</span>
             <motion.span
-              className="text-tokyo-green ml-1"
+              className="text-tokyo-green ml-0.5 md:ml-1"
               animate={{ opacity: [1, 0] }}
               transition={{ duration: 0.8, repeat: Infinity, repeatType: 'reverse' }}
             >
@@ -71,7 +73,7 @@ export default function Navbar({ activeSection }) {
           </div>
         </div>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2 md:gap-3">
           <motion.a
             href="https://github.com/laradev220"
             target="_blank"
@@ -80,7 +82,7 @@ export default function Navbar({ activeSection }) {
             whileHover={{ scale: 1.1, rotate: [0, 5, -5, 0] }}
             whileTap={{ scale: 0.9 }}
           >
-            <Github size={20} />
+            <Github size={18} />
           </motion.a>
           <motion.a
             href="mailto:iamirfan200@gmail.com"
@@ -88,7 +90,7 @@ export default function Navbar({ activeSection }) {
             whileHover={{ scale: 1.1, rotate: [0, 5, -5, 0] }}
             whileTap={{ scale: 0.9 }}
           >
-            <Mail size={20} />
+            <Mail size={18} />
           </motion.a>
         </div>
       </div>

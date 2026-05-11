@@ -10,26 +10,26 @@ export default function Projects() {
 
   return (
     <>
-      <section id="projects" className="py-24 px-6">
+      <section id="projects" className="py-16 md:py-24 px-4 md:px-6">
         <div className="max-w-5xl mx-auto">
           <ScrollReveal>
-            <h2 className="section-title text-2xl font-bold flex items-center gap-3">
+            <h2 className="section-title text-xl md:text-2xl font-bold flex items-center gap-3">
               <span className="text-tokyo-purple">//</span> Projects
             </h2>
           </ScrollReveal>
 
-          <div className="space-y-6">
+          <div className="space-y-4 md:space-y-6">
             {projects.map((project, index) => (
               <ScrollReveal key={project.id} delay={index * 0.1}>
                 <motion.div
-                  className="bg-tokyo-surface border border-tokyo-border rounded-lg p-5 hover:border-tokyo-blue/40 transition-all duration-300 group cursor-pointer"
+                  className="bg-tokyo-surface border border-tokyo-border rounded-lg p-4 md:p-5 hover:border-tokyo-blue/40 transition-all duration-300 group cursor-pointer"
                   onClick={() => setSelectedProject(project)}
                   whileHover={{ 
                     x: 8,
                     boxShadow: '0 4px 20px rgba(122, 162, 247, 0.1)',
                   }}
                 >
-                  <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
+                  <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-3 md:gap-4 mb-3 md:mb-4">
                     <div>
                       <motion.h3 
                         className="text-xl font-semibold text-tokyo-text flex items-center gap-2"

@@ -65,15 +65,15 @@ export default function Hero() {
   }, [displayText, isDeleting, phraseIndex])
 
   return (
-    <section id="hero" className="min-h-screen flex items-center justify-center pt-20 px-6 overflow-hidden">
+    <section id="hero" className="min-h-screen flex items-center justify-center pt-20 px-4 md:px-6 overflow-hidden">
       {/* Background decoration */}
       <motion.div
         className="absolute inset-0 pointer-events-none"
         style={{ y: y1 }}
       >
-        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-tokyo-blue/5 rounded-full blur-3xl" />
+        <div className="absolute top-1/4 left-1/4 w-32 md:w-64 h-32 md:h-64 bg-tokyo-blue/5 rounded-full blur-3xl" />
         <motion.div
-          className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-tokyo-purple/5 rounded-full blur-3xl"
+          className="absolute bottom-1/4 right-1/4 w-48 md:w-96 h-48 md:h-96 bg-tokyo-purple/5 rounded-full blur-3xl"
           style={{ y: y2 }}
         />
       </motion.div>
@@ -85,12 +85,12 @@ export default function Hero() {
         animate="visible"
       >
         {/* Greeting */}
-        <motion.p variants={itemVariants} className="text-tokyo-green mb-4 font-mono">
+        <motion.p variants={itemVariants} className="text-tokyo-green mb-3 md:mb-4 font-mono text-xs md:text-sm">
           <span className="text-tokyo-muted">const</span> greeting = <span className="text-tokyo-string">"Hello, World!"</span>;
         </motion.p>
 
         {/* Name */}
-        <motion.h1 variants={itemVariants} className="text-5xl md:text-7xl font-bold mb-4">
+        <motion.h1 variants={itemVariants} className="text-3xl md:text-5xl lg:text-7xl font-bold mb-3 md:mb-4">
           <span className="text-tokyo-text">I'm </span>
           <span className="text-tokyo-text">
             Muhammad Irfan
@@ -98,7 +98,7 @@ export default function Hero() {
         </motion.h1>
 
         {/* Typewriter */}
-        <motion.h2 variants={itemVariants} className="text-2xl md:text-3xl text-tokyo-muted mb-8 h-10">
+        <motion.h2 variants={itemVariants} className="text-lg md:text-2xl lg:text-3xl text-tokyo-muted mb-6 md:mb-8 h-8 md:h-10">
           <span className="text-tokyo-orange">{displayText}</span>
           <motion.span
             animate={{ opacity: [1, 0] }}
@@ -110,16 +110,16 @@ export default function Hero() {
         </motion.h2>
 
         {/* Bio */}
-        <motion.p variants={itemVariants} className="text-tokyo-muted max-w-xl mx-auto mb-10 text-lg">
+        <motion.p variants={itemVariants} className="text-tokyo-muted max-w-xl mx-auto mb-8 md:mb-10 text-sm md:text-lg">
           Backend Developer with 2 years of experience building scalable APIs and robust server-side applications.
         </motion.p>
 
         {/* CTA Buttons */}
-        <motion.div variants={itemVariants} className="flex flex-wrap justify-center gap-4 mb-12">
+        <motion.div variants={itemVariants} className="flex flex-wrap justify-center gap-3 md:gap-4 mb-8 md:mb-12">
           <motion.a
             href="/resume.pdf"
             download
-            className="btn-primary flex items-center gap-2"
+            className="btn-primary flex items-center gap-2 text-sm md:text-base"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
           >
@@ -128,7 +128,7 @@ export default function Hero() {
           </motion.a>
           <motion.a
             href="#projects"
-            className="btn-secondary"
+            className="btn-secondary text-sm md:text-base"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
           >
@@ -137,24 +137,24 @@ export default function Hero() {
         </motion.div>
 
         {/* Social Links */}
-        <motion.div variants={itemVariants} className="flex justify-center gap-6">
+        <motion.div variants={itemVariants} className="flex flex-col md:flex-row justify-center gap-3 md:gap-6">
           <motion.a
             href="https://github.com/laradev220"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 text-tokyo-muted hover:text-tokyo-text transition-colors"
+            className="flex items-center gap-2 text-tokyo-muted hover:text-tokyo-text transition-colors text-xs md:text-sm"
             whileHover={{ x: 5 }}
           >
-            <Github size={20} />
-            <span>github.com/laradev220</span>
+            <Github size={18} />
+            <span className="hidden md:inline">github.com/laradev220</span>
           </motion.a>
           <motion.a
             href="mailto:iamirfan200@gmail.com"
-            className="flex items-center gap-2 text-tokyo-muted hover:text-tokyo-text transition-colors"
+            className="flex items-center gap-2 text-tokyo-muted hover:text-tokyo-text transition-colors text-xs md:text-sm"
             whileHover={{ x: 5 }}
           >
-            <Mail size={20} />
-            <span>iamirfan200@gmail.com</span>
+            <Mail size={18} />
+            <span className="hidden md:inline">iamirfan200@gmail.com</span>
           </motion.a>
         </motion.div>
 
