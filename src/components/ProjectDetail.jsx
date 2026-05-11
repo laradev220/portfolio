@@ -45,7 +45,7 @@ export default function ProjectDetail({ project, onClose, onNavigate }) {
     opacity: 1,
   }}
   exit={{ x: '100%', opacity: 0 }}
-  transition={{ duration: 0.5 }}
+  transition={{ duration: 0.5, ease: "easeOut" }}
   className={`
     bg-tokyo-surface border border-tokyo-border shadow-2xl
     transition-all duration-300
