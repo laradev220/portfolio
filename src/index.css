@@ -1,0 +1,119 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'JetBrains Mono', 'Fira Code', Consolas, monospace;
+  background-color: #1a1b26;
+  color: #c0caf5;
+  line-height: 1.7;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1b26;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #414868;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #565f89;
+}
+
+::selection {
+  background: #7aa2f733;
+  color: #c0caf5;
+}
+
+.section-title {
+  @apply text-tokyo-blue font-semibold mb-6;
+}
+
+.tech-tag {
+  @apply px-2 py-1 text-xs rounded bg-tokyo-surface border border-tokyo-border text-tokyo-muted;
+}
+
+.project-card {
+  @apply bg-tokyo-surface border border-tokyo-border rounded-lg p-5 hover:border-tokyo-blue/50 transition-all duration-300;
+}
+
+.btn-primary {
+  @apply px-7 py-3 font-medium rounded-xl transition-all duration-300;
+  background-color: #7aa2f7;
+  color: #1a1b26;
+  box-shadow: 0 4px 15px rgba(122, 162, 247, 0.3);
+  border: 1px solid transparent;
+}
+
+.btn-primary:hover {
+  background-color: #6b93e0;
+  box-shadow: 0 6px 25px rgba(122, 162, 247, 0.4);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  @apply px-7 py-3 font-medium rounded-xl transition-all duration-300;
+  background-color: transparent;
+  border: 1px solid #414868;
+  color: #c0caf5;
+}
+
+.btn-secondary:hover {
+  border-color: #bb9af7;
+  color: #bb9af7;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(187, 154, 247, 0.15);
+}
+
+/* Respect prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  .motion-reduce\:animate-none {
+    animation: none !important;
+  }
+}
+
+@keyframes scrollLeft {
+  from { transform: translateX(100vw); }
+  to { transform: translateX(-100%); }
+}
+
+@keyframes matrixFall {
+  from { transform: translateY(-100%); }
+  to { transform: translateY(100vh); }
+}
+
+.scroll-command {
+  animation: scrollLeft 20s linear infinite;
+}
+
+.matrix-column {
+  animation: matrixFall 15s linear infinite;
+}
