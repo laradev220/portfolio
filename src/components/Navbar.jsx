@@ -73,24 +73,24 @@ export default function Navbar({ activeSection }) {
           </div>
         </div>
 
-        <div className="flex items-center gap-2 md:gap-3">
+        <div className="flex items-center gap-1 md:gap-3">
           <motion.a
             href="https://github.com/laradev220"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-tokyo-muted hover:text-tokyo-text transition-colors"
+            className="p-2 md:p-0 text-tokyo-muted hover:text-tokyo-text transition-colors rounded-md touch-target"
             whileHover={{ scale: 1.1, rotate: [0, 5, -5, 0] }}
             whileTap={{ scale: 0.9 }}
           >
-            <Github size={18} />
+            <Github size={20} />
           </motion.a>
           <motion.a
             href="mailto:iamirfan200@gmail.com"
-            className="text-tokyo-muted hover:text-tokyo-text transition-colors"
+            className="p-2 md:p-0 text-tokyo-muted hover:text-tokyo-text transition-colors rounded-md touch-target"
             whileHover={{ scale: 1.1, rotate: [0, 5, -5, 0] }}
             whileTap={{ scale: 0.9 }}
           >
-            <Mail size={18} />
+            <Mail size={20} />
           </motion.a>
         </div>
       </div>

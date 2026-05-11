@@ -66,7 +66,7 @@ export default function Skills() {
                   {category.skills.map((skill, skillIndex) => (
                     <motion.span
                       key={skill}
-                      className="px-3 py-1.5 text-sm bg-tokyo-bg border border-tokyo-border rounded-md text-tokyo-muted"
+                      className="px-2.5 py-1.5 text-xs sm:text-sm bg-tokyo-bg border border-tokyo-border rounded-md text-tokyo-muted touch-target-sm"
                       initial={{ opacity: 0, scale: 0.8 }}
                       whileInView={{ opacity: 1, scale: 1 }}
                       viewport={{ once: true }}

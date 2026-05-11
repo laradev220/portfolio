@@ -117,3 +117,104 @@ body {
 .matrix-column {
   animation: matrixFall 15s linear infinite;
 }
+
+.touch-target {
+  min-width: 44px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.touch-target-sm {
+  min-width: 36px;
+  min-height: 36px;
+}
+
+@media (max-width: 767px) {
+  .touch-target-sm {
+    min-width: 40px;
+    min-height: 40px;
+  }
+}
+
+@media print {
+  body {
+    background-color: white !important;
+    color: black !important;
+    font-size: 12pt;
+    line-height: 1.5;
+  }
+
+  .bg-tokyo-bg,
+  .bg-tokyo-surface,
+  .bg-tokyo-surface\/30 {
+    background-color: white !important;
+  }
+
+  .border-tokyo-border,
+  .border-tokyo-border\/50 {
+    border-color: #ccc !important;
+  }
+
+  .text-tokyo-text { color: #000 !important; }
+  .text-tokyo-muted { color: #444 !important; }
+  .text-tokyo-blue { color: #0066cc !important; }
+  .text-tokyo-green { color: #008800 !important; }
+  .text-tokyo-purple { color: #8800cc !important; }
+  .text-tokyo-orange { color: #cc6600 !important; }
+  .text-tokyo-red { color: #cc0000 !important; }
+  .text-tokyo-yellow { color: #999900 !important; }
+
+  nav,
+  footer,
+  .fixed,
+  button,
+  a[href],
+  .motion-div {
+    display: none !important;
+  }
+
+  section {
+    page-break-after: always;
+    padding: 20px 0;
+  }
+
+  section:last-child {
+    page-break-after: avoid;
+  }
+
+  h1, h2, h3 {
+    color: black !important;
+    page-break-after: avoid;
+  }
+
+  a {
+    color: black !important;
+    text-decoration: underline;
+  }
+
+  a[href]::after {
+    content: " (" attr(href) ")";
+    font-size: 10pt;
+    color: #666;
+  }
+
+  .project-card,
+  .bg-tokyo-surface {
+    border: 1px solid #ccc !important;
+    box-shadow: none !important;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    display: none !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .touch-target-md {
+    min-width: 44px;
+    min-height: 44px;
+  }
+}

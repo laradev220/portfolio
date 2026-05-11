@@ -119,30 +119,31 @@ export default function Hero() {
           <motion.a
             href="/resume.pdf"
             download
-            className="btn-primary flex items-center gap-2 text-sm md:text-base"
+            className="btn-primary flex items-center gap-2 text-sm md:text-base touch-target"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
           >
             <Download size={18} />
-            Download Resume
+            <span className="hidden sm:inline">Download Resume</span>
+            <span className="sm:hidden">Resume</span>
           </motion.a>
           <motion.a
             href="#projects"
-            className="btn-secondary text-sm md:text-base"
+            className="btn-secondary text-sm md:text-base touch-target"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
           >
-            View Projects
+            Projects
           </motion.a>
         </motion.div>
 
         {/* Social Links */}
-        <motion.div variants={itemVariants} className="flex flex-col md:flex-row justify-center gap-3 md:gap-6">
+        <motion.div variants={itemVariants} className="flex flex-col md:flex-row justify-center gap-2 md:gap-6">
           <motion.a
             href="https://github.com/laradev220"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 text-tokyo-muted hover:text-tokyo-text transition-colors text-xs md:text-sm"
+            className="flex items-center gap-2 text-tokyo-muted hover:text-tokyo-text transition-colors text-xs md:text-sm p-2 touch-target md:p-0 rounded-md"
             whileHover={{ x: 5 }}
           >
             <Github size={18} />
@@ -150,7 +151,7 @@ export default function Hero() {
           </motion.a>
           <motion.a
             href="mailto:iamirfan200@gmail.com"
-            className="flex items-center gap-2 text-tokyo-muted hover:text-tokyo-text transition-colors text-xs md:text-sm"
+            className="flex items-center gap-2 text-tokyo-muted hover:text-tokyo-text transition-colors text-xs md:text-sm p-2 touch-target md:p-0 rounded-md"
             whileHover={{ x: 5 }}
           >
             <Mail size={18} />

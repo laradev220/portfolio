@@ -58,7 +58,7 @@ export default function Contact() {
                   href={method.href}
                   target={method.href.startsWith('http') ? '_blank' : '_self'}
                   rel="noopener noreferrer"
-                  className={`bg-tokyo-surface border border-tokyo-border rounded-lg p-4 md:p-6 text-center block ${method.hoverColor} transition-colors group`}
+                  className={`bg-tokyo-surface border border-tokyo-border rounded-lg p-4 md:p-6 text-center block ${method.hoverColor} transition-colors group touch-target`}
                   whileHover={{ scale: 1.03, y: -4 }}
                   whileTap={{ scale: 0.98 }}
                 >
@@ -74,7 +74,7 @@ export default function Contact() {
                 </motion.a>
               ) : (
                 <motion.div
-                  className="bg-tokyo-surface border border-tokyo-border rounded-lg p-4 md:p-6 text-center"
+                  className="bg-tokyo-surface border border-tokyo-border rounded-lg p-4 md:p-6 text-center touch-target"
                   whileHover={{ scale: 1.03, y: -4 }}
                 >
                   <motion.div
