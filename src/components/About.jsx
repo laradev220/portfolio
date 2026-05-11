@@ -2,10 +2,10 @@ import { motion } from 'framer-motion'
 import ScrollReveal from './ScrollReveal'
 
 const stats = [
-  { value: '2+', label: 'Years Experience', color: 'text-tokyo-blue' },
-  { value: '5+', label: 'Projects Built', color: 'text-tokyo-green' },
-  { value: '5+', label: 'Technologies', color: 'text-tokyo-purple' },
-  { value: '100%', label: 'Commitment', color: 'text-tokyo-orange' },
+  { key: 'years', value: '"2+"', keyColor: 'text-tokyo-purple', valueColor: 'text-tokyo-blue' },
+  { key: 'projects', value: '"5+"', keyColor: 'text-tokyo-purple', valueColor: 'text-tokyo-green' },
+  { key: 'technologies', value: '"5+"', keyColor: 'text-tokyo-purple', valueColor: 'text-tokyo-purple' },
+  { key: 'commitment', value: '"100%"', keyColor: 'text-tokyo-purple', valueColor: 'text-tokyo-orange' },
 ]
 
 export default function About() {
@@ -38,22 +38,31 @@ export default function About() {
           </div>
         </ScrollReveal>
 
-        <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4">
-          {stats.map((stat, index) => (
-            <ScrollReveal key={stat.label} delay={0.2 + index * 0.1}>
-              <motion.div
-                className="bg-tokyo-surface border border-tokyo-border rounded-lg p-4 text-center cursor-default"
-                whileHover={{ 
-                  scale: 1.03, 
-                  borderColor: 'rgba(122, 162, 247, 0.3)',
-                  transition: { duration: 0.2 }
-                }}
-              >
-                <div className={`text-3xl font-bold ${stat.color}`}>{stat.value}</div>
-                <div className="text-tokyo-muted text-sm">{stat.label}</div>
-              </motion.div>
-            </ScrollReveal>
-          ))}
+        <div className="mt-8">
+          <ScrollReveal delay={0.2}>
+            <motion.div
+              className="bg-tokyo-bg border border-tokyo-border rounded-lg p-5 font-mono text-sm overflow-x-auto"
+              whileHover={{ borderColor: 'rgba(122, 162, 247, 0.4)' }}
+            >
+              <div className="text-tokyo-muted mb-1">{'// Stats'}</div>
+              <div className="flex flex-wrap">
+                <span className="text-tokyo-text">{'{'}</span>
+                {stats.map((stat, index) => (
+                  <motion.div
+                    key={stat.key}
+                    className="flex items-center w-full md:w-auto md:inline-flex ml-4 my-1"
+                    whileHover={{ x: 2 }}
+                  >
+                    <span className={`${stat.keyColor}`}>{stat.key}</span>
+                    <span className="text-tokyo-muted mx-2">:</span>
+                    <span className={`${stat.valueColor}`}>{stat.value}</span>
+                    {index < stats.length - 1 && <span className="text-tokyo-text">,</span>}
+                  </motion.div>
+                ))}
+                <span className="text-tokyo-text ml-4">{'}'}</span>
+              </div>
+            </motion.div>
+          </ScrollReveal>
         </div>
       </div>
     </section>
