@@ -6,8 +6,8 @@ const education = [
   {
     degree: 'BS Computer Science',
     institution: 'Abasyn University Peshawar',
-    year: 'Present',
-    description: "Pursuing Bachelor's degree in Computer Science with focus on software development and web technologies.",
+    year: '2020-2024',
+    description: "Completed Bachelor's degree in Computer Science with focus on software development and web technologies.",
   },
 ]
 
