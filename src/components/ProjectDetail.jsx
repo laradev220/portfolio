@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { X, ChevronLeft, ChevronRight, Database, Code2, BookOpen, Settings, Rocket, Layers, ArrowRight, Plug, Maximize2, Minimize2 } from 'lucide-react'
+import { X, ChevronLeft, ChevronRight, Database, Code2, BookOpen, Layers, ArrowRight, Plug, Maximize2, Minimize2 } from 'lucide-react'
 import { getNextProject, getPrevProject } from '../data/projects'
 
 export default function ProjectDetail({ project, onClose, onNavigate }) {
@@ -135,13 +135,13 @@ export default function ProjectDetail({ project, onClose, onNavigate }) {
               </ul>
             </div>
 
-            {/* Architecture - Full System Map */}
+{/* Architecture - Full System Map */}
             <div>
               <h3 className="flex items-center gap-2 text-lg font-semibold text-tokyo-purple mb-4">
                 <Layers size={18} />
                 System Architecture
               </h3>
-              
+               
               {/* Overview */}
               <div className="mb-6 p-4 bg-tokyo-bg border border-tokyo-border rounded-lg">
                 <p className="text-tokyo-text leading-relaxed">{architecture.overview}</p>
@@ -195,57 +195,9 @@ export default function ProjectDetail({ project, onClose, onNavigate }) {
                 <Database size={18} />
                 Database
               </h3>
-              <div className="space-y-3">
-                <div className="p-3 bg-tokyo-bg border border-tokyo-border rounded-lg">
-                  <div className="text-sm text-tokyo-muted mb-1">Tables:</div>
-                  <div className="flex flex-wrap gap-2">
-                    {project.database.tables.map((table, i) => (
-                      <span key={i} className="px-2 py-1 text-xs bg-tokyo-surface border border-tokyo-border rounded text-tokyo-green font-mono">
-                        {table}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-                <div>
-                  <span className="text-tokyo-muted">Relationships: </span>
-                  <span className="text-tokyo-text">{project.database.relationships}</span>
-                </div>
-              </div>
-            </div>
-
-            {/* API Endpoints */}
-            <div>
-              <h3 className="flex items-center gap-2 text-lg font-semibold text-tokyo-blue mb-3">
-                <Rocket size={18} />
-                API Endpoints
-              </h3>
-              <div className="space-y-2">
-                {project.apiEndpoints.map((endpoint, i) => (
-                  <div key={i} className="flex items-center gap-3 p-2 bg-tokyo-bg rounded border border-tokyo-border">
-                    <code className="text-tokyo-green text-sm">{endpoint.split(' - ')[0]}</code>
-                    <span className="text-tokyo-muted text-sm">-</span>
-                    <span className="text-tokyo-text text-sm">{endpoint.split(' - ')[1]}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Setup */}
-            <div>
-              <h3 className="text-lg font-semibold text-tokyo-purple mb-3">Setup</h3>
-              <div className="p-4 bg-tokyo-bg border border-tokyo-border rounded-lg">
-                <p className="text-tokyo-muted mb-3">
-                  <span className="text-tokyo-orange">Prerequisites: </span>
-                  {project.setup.prerequisites.join(', ')}
-                </p>
-                <div className="space-y-1">
-                  {project.setup.steps.map((step, i) => (
-                    <div key={i} className="flex items-center gap-2 text-sm font-mono">
-                      <span className="text-tokyo-blue">{i + 1}.</span>
-                      <span className="text-tokyo-text">{step}</span>
-                    </div>
-                  ))}
-                </div>
+              <div className="p-3 bg-tokyo-bg border border-tokyo-border rounded-lg">
+                <span className="text-tokyo-muted">Relationships: </span>
+                <span className="text-tokyo-text">{project.database.relationships}</span>
               </div>
             </div>
           </div>

@@ -50,7 +50,7 @@ export default function Contact() {
           </div>
         </ScrollReveal>
 
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 mb-8 md:10">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6 mb-8 md:10">
           {contactMethods.map((method, index) => (
             <ScrollReveal key={method.label} delay={0.2 + index * 0.1}>
               {method.href ? (
@@ -58,34 +58,34 @@ export default function Contact() {
                   href={method.href}
                   target={method.href.startsWith('http') ? '_blank' : '_self'}
                   rel="noopener noreferrer"
-                  className={`bg-tokyo-surface border border-tokyo-border rounded-lg p-4 md:p-6 text-center block ${method.hoverColor} transition-colors group touch-target`}
+                  className={`bg-tokyo-surface border border-tokyo-border rounded-lg p-4 md:p-6 flex flex-col items-center ${method.hoverColor} transition-colors group touch-target`}
                   whileHover={{ scale: 1.03, y: -4 }}
                   whileTap={{ scale: 0.98 }}
                 >
                   <motion.div
-                    className={`mx-auto mb-2 md:mb-3 ${method.color}`}
+                    className={`mb-2 md:mb-3 ${method.color}`}
                     whileHover={{ scale: 1.1, rotate: [0, -10, 10, 0] }}
                     transition={{ duration: 0.3 }}
                   >
-                    <method.icon size={28} />
+                    <method.icon size={24} />
                   </motion.div>
                   <p className="text-tokyo-text font-medium text-sm md:text-base">{method.label}</p>
-                  <p className="text-tokyo-muted text-xs md:text-sm group-hover:text-tokyo-text transition-colors">{method.value}</p>
+                  <p className="text-tokyo-muted text-xs md:text-sm group-hover:text-tokyo-text transition-colors mt-1">{method.value}</p>
                 </motion.a>
               ) : (
                 <motion.div
-                  className="bg-tokyo-surface border border-tokyo-border rounded-lg p-4 md:p-6 text-center touch-target"
+                  className="bg-tokyo-surface border border-tokyo-border rounded-lg p-4 md:p-6 flex flex-col items-center touch-target"
                   whileHover={{ scale: 1.03, y: -4 }}
                 >
                   <motion.div
-                    className={`mx-auto mb-2 md:mb-3 ${method.color}`}
+                    className={`mb-2 md:mb-3 ${method.color}`}
                     whileHover={{ scale: 1.1, rotate: [0, -10, 10, 0] }}
                     transition={{ duration: 0.3 }}
                   >
-                    <method.icon size={28} />
+                    <method.icon size={24} />
                   </motion.div>
                   <p className="text-tokyo-text font-medium text-sm md:text-base">{method.label}</p>
-                  <p className="text-tokyo-muted text-xs md:text-sm">{method.value}</p>
+                  <p className="text-tokyo-muted text-xs md:text-sm mt-1">{method.value}</p>
                 </motion.div>
               )}
             </ScrollReveal>

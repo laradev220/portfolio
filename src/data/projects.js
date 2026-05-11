@@ -28,44 +28,15 @@ Built from ground up with focus on scalability and real-world airline booking wo
         { name: 'Presentation', items: ['React SPA Frontend', 'REST API Client', 'Admin Dashboard'] },
         { name: 'API Gateway', items: ['Express.js Router', 'JWT Auth Middleware', 'Rate Limiter (Redis)', 'Request Validation (Joi/Zod)'] },
         { name: 'Business Logic', items: ['AuthService', 'AgencyService', 'GroupService', 'BookingService', 'SeatManagementService', 'PaymentService', 'NotificationService'] },
-        { name: 'Data Access', items: ['Sequelize ORM', '11 Database Models', 'Query Builder Layer', 'Transaction Management'] },
+        { name: 'Data Access', items: ['Sequelize ORM', 'Database Models', 'Query Builder Layer', 'Transaction Management'] },
         { name: 'Infrastructure', items: ['MySQL 8.0', 'Redis (Cache/Session/RateLimit)', 'Node Cron (Background Jobs)', 'File System (Payment Proofs)'] }
       ],
       dataFlow: `Client Request → Express Middleware (Auth/RateLimit) → Controller → Service (Business Logic) → Model (Sequelize) → MySQL → Response`,
       external: ['JWT Token Generation', 'Redis Pub/Sub', 'File Upload (Local/MinIO ready)']
     },
     database: {
-      tables: [
-        'agencies', 'users', 'agency_settings',
-        'flight_groups', 'group_seat_buckets', 'group_agency_allocations',
-        'booking_requests', 'booking_passengers', 'payment_proofs',
-        'audit_logs', 'attachments'
-      ],
       relationships: '11 models with 25+ associations, foreign key constraints, cascade deletes'
-    },
-    apiEndpoints: [
-      'POST /auth/login - Agency-scoped authentication',
-      'GET/POST /groups - Flight group CRUD',
-      'GET/POST /bookings - Booking workflow endpoints',
-      'POST /bookings/:id/approve - Approve booking request',
-      'POST /bookings/:id/mark-paid - Mark payment received',
-      'POST /bookings/:id/issue - Issue tickets with PNR'
-    ],
-    setup: {
-      prerequisites: ['Node.js 18+', 'MySQL 8.0+', 'Redis'],
-      steps: [
-        'git clone repository',
-        'npm install',
-        'Configure .env with DB credentials',
-        'Run npm run db:init',
-        'npm run dev'
-      ]
-    },
-    challenges: [
-      'Concurrency handling for seat allocation (SELECT FOR UPDATE)',
-      'Timezone handling for flight times (UTC + local)',
-      'Stateless auth with agency scoping in JWT'
-    ]
+    }
   },
   {
     id: 2,
@@ -104,32 +75,8 @@ Features robust authentication system with multiple user roles (Super Admin, Adm
       external: ['Laravel Sanctum (Token Auth)', 'Scramble (OpenAPI)', 'Redis Queue Driver', 'Pest Testing Framework']
     },
     database: {
-      tables: ['users', 'courses', 'lessons', 'enrollments', 'progress', 'categories'],
       relationships: 'Eloquent ORM with proper relationships'
-    },
-    apiEndpoints: [
-      'POST /api/auth/login - User authentication',
-      'GET/POST /api/courses - Course CRUD',
-      'GET/POST /api/lessons - Lesson management',
-      'POST /api/enrollments - Enroll student',
-      'GET /docs - OpenAPI documentation'
-    ],
-    setup: {
-      prerequisites: ['PHP 8.2+', 'Composer', 'Node.js 18+', 'MySQL/PostgreSQL', 'Redis'],
-      steps: [
-        'git clone repository',
-        'composer install',
-        'cp .env.example .env',
-        'php artisan key:generate',
-        'php artisan migrate',
-        'composer run dev'
-      ]
-    },
-    challenges: [
-      'Complex permission system with inheritance',
-      'API documentation auto-generation',
-      'Task queue setup with Redis'
-    ]
+    }
   },
   {
     id: 3,
@@ -162,44 +109,14 @@ Built on CodeIgniter 4 with structured MVC architecture. Includes multiple inter
         { name: 'Controller', items: ['Admin Controller', 'Auth Controller', 'Feature Controllers (Invoice/Receipt/Ledger)'] },
         { name: 'Model', items: ['Entity Models', 'Query Builder Usage', 'Transaction Support'] },
         { name: 'Libraries', items: ['Session Library', 'Email Library', 'Form Validation'] },
-        { name: 'Database', items: ['MySQL 5.7+', '13 Interconnected Tables', 'Foreign Key Constraints'] }
+        { name: 'Database', items: ['MySQL 5.7+', 'Database Tables', 'Foreign Key Constraints'] }
       ],
       dataFlow: `HTTP Request → Route → Controller → Model (Query Builder) → MySQL → View (HTML)`,
       external: ['PHP Session', 'MySQL Database', 'PHP Mail (SMTP)']
     },
     database: {
-      tables: [
-        'users', 'invoices', 'invoice_items', 'receipts',
-        'transactions', 'ledger_accounts', 'employees',
-        'salary_payments', 'salary_details', 'cheque_tracking',
-        'petty_cash', 'expense_categories'
-      ],
       relationships: 'Proper foreign keys, cascading updates'
-    },
-    apiEndpoints: [
-      'GET/POST /Admin/invoices',
-      'GET/POST /Admin/receipts',
-      'GET/POST /Admin/day_book',
-      'GET/POST /Admin/ledgers',
-      'GET/POST /Admin/employees',
-      'POST /Admin/salary_payment'
-    ],
-    setup: {
-      prerequisites: ['PHP 8.1+', 'MySQL 5.7+', 'Composer'],
-      steps: [
-        'git clone repository',
-        'composer install',
-        'Configure .env with DB credentials',
-        'php spark migrate',
-        'php spark db:seed UserSeeder',
-        'php spark serve'
-      ]
-    },
-    challenges: [
-      'Complex financial calculations',
-      'Transaction integrity across modules',
-      'Report generation from multiple tables'
-    ]
+    }
   },
   {
     id: 4,
@@ -239,34 +156,8 @@ Zero-dependency architecture makes it perfect for cPanel/shared hosting deployme
       external: ['TailwindCSS CDN', 'Chart.js CDN', 'Alpine.js CDN', 'MySQL Database']
     },
     database: {
-      tables: [
-        'users', 'surveys', 'questions', 'survey_questions',
-        'participants', 'survey_sessions', 'responses',
-        'settings', 'audit_log'
-      ],
       relationships: 'Foreign key constraints with proper indexes'
-    },
-    apiEndpoints: [
-      'GET/POST / - Public survey',
-      'GET /login, /register - Auth',
-      'GET /admin/* - Admin panel routes',
-      'GET /researcher/* - Researcher dashboard'
-    ],
-    setup: {
-      prerequisites: ['PHP 7.1+', 'MySQL 5.7+', 'cPanel/Apache'],
-      steps: [
-        'Upload all files to public_html',
-        'Create MySQL database',
-        'Import database.sql',
-        'Run php database_migration.php',
-        'Configure config.php with credentials'
-      ]
-    },
-    challenges: [
-      'Zero-dependency constraint',
-      'Single-file routing implementation',
-      'Security in procedural PHP'
-    ]
+    }
   },
   {
     id: 5,
@@ -294,33 +185,14 @@ Built on legacy CodeIgniter 3 - demonstrates ability to work with older codebase
         { name: 'Controllers', items: ['REST Controller (API)', 'Admin Controller', 'Public Controller'] },
         { name: 'Models', items: ['Active Record Pattern', 'Basic CRUD Operations'] },
         { name: 'Libraries', items: ['Form Validation', 'Email', 'Session'] },
-        { name: 'Database', items: ['MySQL', '3 Tables', 'Simple Joins'] }
+        { name: 'Database', items: ['MySQL', 'Database Tables', 'Simple Joins'] }
       ],
       dataFlow: `HTTP Request → Router → Controller → Model (Active Record) → MySQL → View/API Response`,
       external: ['MySQL Database', 'PHP Sessions']
     },
     database: {
-      tables: ['brands', 'submissions', 'users'],
       relationships: 'Simple foreign key relationships'
-    },
-    apiEndpoints: [
-      'GET/POST /api/brands',
-      'GET/POST /api/submissions',
-      'GET /admin/dashboard'
-    ],
-    setup: {
-      prerequisites: ['PHP 5.6+', 'MySQL'],
-      steps: [
-        'Upload to web server',
-        'Configure database.php',
-        'Import database.sql',
-        'Access via browser'
-      ]
-    },
-    challenges: [
-      'Working with legacy CI3 codebase',
-      'Security hardening on older PHP'
-    ]
+    }
   }
 ]
 
